@@ -1,0 +1,14 @@
+name: appsilon
+title: appsilon
+username:
+account: thfuchs
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4810857
+bundleId: 5111575
+url: https://thfuchs.shinyapps.io/appsilon/
+when: 1633547043.89516
+lastSyncTime: 1633547043.89516
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .github/.gitignore|.github/workflows/R-CMD-check.yaml
