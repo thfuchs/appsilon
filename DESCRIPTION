@@ -21,3 +21,5 @@ Depends: R (>= 4.0.0)
 Suggests: 
     testthat (>= 3.0.0)
 Language: en-US
+URL: https://github.com/thfuchs/appsilon
+BugReports: https://github.com/thfuchs/appsilon/issues
