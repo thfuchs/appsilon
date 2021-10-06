@@ -49,6 +49,11 @@ mod_input_vessel_server <- function(id, r){
       )
     })
     
+    # Module Output
+    observe({
+      req(input$id_ship_type)
+      r$input_vessel$type <- input$id_ship_type
+    })
     observe({
       req(input$id_vessel)
       r$input_vessel$name <- input$id_vessel

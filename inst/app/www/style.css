@@ -7,6 +7,10 @@ body {
   border-radius: 0; width: 100%; background: #D7D7E1; box-shadow: none
 }
 
+.ui.dimmer.modals.page.transition.visible.active {
+  overflow: auto
+}
+
 @media screen and (min-width: 845px) {
   #output_map_ui-map {
     height: calc(100vh) !important;
