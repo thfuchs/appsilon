@@ -1,0 +1,1 @@
+options(mapbox.accessToken = "pk.eyJ1IjoidGhvbWFzZnVjaHMiLCJhIjoiY2t1ZTdidWhuMWVxczJ2bXh5eGd6c3M5MiJ9.igHuJfSearKiaqlVM8pQKQ")
