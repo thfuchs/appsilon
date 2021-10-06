@@ -10,6 +10,7 @@ Imports:
     data.table (>= 1.14.0),
     leaflet,
     leaflet.mapboxgl,
+    pkgload,
     shiny (>= 1.7.1),
     shiny.semantic (>= 0.4.0)
 Encoding: UTF-8
