@@ -48,7 +48,7 @@ mod_output_map_server <- function(id, r){
         
         # Select the max distance and observation just before (start and end)
         max_val <- ships[SHIPNAME == vessel, max(DISTANCE, na.rm = TRUE)]
-        max_val_id <- ships[SHIPNAME == vessel & DISTANCE == max_val, id, .SD[which.max(DATETIME)]]
+        max_val_id <- ships[SHIPNAME == vessel & DISTANCE == max_val, .SD[which.max(DATETIME)]][, id]
         ships_selected <- ships[SHIPNAME == vessel & id %in% c(max_val_id - 1, max_val_id)]
         
         # Output data.table containing the two observations
@@ -75,13 +75,8 @@ mod_output_map_server <- function(id, r){
         leaflet.mapboxgl::addMapboxGL(style = "mapbox://styles/mapbox/streets-v9") %>%
         addEasyButton(easyButton(
           icon = "fa-globe",
-          title = "Zoom to Level 1",
-          onClick = JS("function(btn, map){ map.setZoom(1); }")
-        )) %>%
-        addEasyButton(easyButton(
-          icon = "fa-crosshairs",
-          title = "Locate Me",
-          onClick = JS("function(btn, map){ map.locate({setView: true}); }")
+          title = "Zoom to top Level",
+          onClick = JS("function(btn, map){ map.setZoom(2); }")
         ))
       
       m

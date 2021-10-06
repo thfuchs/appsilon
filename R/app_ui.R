@@ -28,7 +28,7 @@ app_ui <- function(request) {
               "statistics"
             ),
             cols_width = c("100%"),
-            rows_height = c("50px", "220px", "100px", "auto", "auto")
+            rows_height = c("50px", "250px", "400px", "100px", "auto")
           )
         ),
         area_styles = list(
