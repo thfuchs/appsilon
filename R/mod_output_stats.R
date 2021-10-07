@@ -31,8 +31,7 @@ mod_output_stats_server <- function(id, r){
     ships <- appsilon::ships
     
     # Input Variable
-    selection <- c("SPEED", "COURSE", "HEADING", "DESTINATION", "FLAG", "LENGTH", 
-                   "SHIPNAME", "WIDTH", "DWT", "PORT", "date", "DISTANCE")
+    selection <- c("SPEED", "FLAG", "DISTANCE")
     
     # Modal in observer
     observeEvent(input$button, {
@@ -47,18 +46,16 @@ mod_output_stats_server <- function(id, r){
         return(NULL)
       }
       type <- r$input_vessel$type
-      
+
       shiny.semantic::create_modal(shiny.semantic::modal(
         id = "simple-modal", 
-        header = h3(HTML(sprintf(
-          "Create your statistics on the Marine Data Set for type <em>>>%s<<</em>",
-          type
-        ))),
-        
+        header = h3("Create your statistics on the Marine Data Set"),
+
+        uiOutput(ns("id_type")),
         # Input
         shiny.semantic::selectInput(
           inputId = ns("id_select"), 
-          label = "Select variables you would like to compare", 
+          label = "Select variables you would like to compare for the selected type", 
           choices = selection, 
           selected = c("SPEED", "DISTANCE"),
           multiple = TRUE
@@ -89,6 +86,14 @@ mod_output_stats_server <- function(id, r){
       ))
     })
     
+    # Type Header
+    output$id_type <- renderUI({
+      req(r$input_vessel$type)
+      type <- r$input_vessel$type
+      
+      h4(paste("Type:", type), style = "margin-bottom: 10px;")
+    })
+    
     # Summary statistics
     output$id_summary <- renderUI({
       req(input$id_select)
@@ -100,7 +105,7 @@ mod_output_stats_server <- function(id, r){
         print(
           summarytools::dfSummary(
             ships[ship_type == type, .SD, .SDcols = user_selection],
-            graph.magnif = 0.8,
+            graph.magnif = 0.7,
             varnumbers = FALSE,
             headings = FALSE,
             display.labels = FALSE
