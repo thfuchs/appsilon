@@ -7,6 +7,7 @@ app_ui <- function(request) {
   tagList(
     add_external_resources(),
     semanticPage(
+      title = "Marine Data",
       grid(
         grid_template = grid_template(
           default = list(
